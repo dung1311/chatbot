@@ -3,7 +3,8 @@
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import express from 'express';
-import request from '@cypress/request';
+import request from 'request';
+
 
 const app = express();
 
