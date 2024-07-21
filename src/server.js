@@ -3,8 +3,7 @@
 import bodyParser from 'body-parser';
 import { config } from 'dotenv';
 import express from 'express';
-import request from 'request';
-
+import got from 'got';
 
 const app = express();
 
@@ -143,7 +142,6 @@ function handlePostback(senderPsid, receivedPostback) {
 // Sends response messages via the Send API
 function callSendAPI(senderPsid, response) {
 
-    // The page access token we have generated in your app settings
     const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
     // Construct the message body
@@ -155,18 +153,19 @@ function callSendAPI(senderPsid, response) {
     };
 
     // Send the HTTP request to the Messenger Platform
-    request({
-        'uri': 'https://graph.facebook.com/v20.0/me/messages',
-        'qs': { 'access_token': PAGE_ACCESS_TOKEN },
-        'method': 'POST',
-        'json': requestBody
-    }, (err, _res, _body) => {
-        if (!err) {
+    (async () => {
+        try {
+            const response = await got.post('https://graph.facebook.com/v20.0/me/messages', {
+                searchParams: { 'access_token': PAGE_ACCESS_TOKEN },
+                json: requestBody,
+                responseType: 'json'
+            });
             console.log('Message sent!');
-        } else {
-            console.error('Unable to send message:' + err);
+        } catch (err) {
+            console.error('Unable to send message:', err);
         }
-    });
+    })();
+
 }
 
 var listener = app.listen(process.env.PORT, function () {

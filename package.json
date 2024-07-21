@@ -18,7 +18,11 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "request": "^2.88.2",
+    "fb": "^2.0.0",
+    "got": "^14.4.1",
     "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "@types/fb": "^0.0.28"
   }
 }
