@@ -80,7 +80,7 @@ app.post('/webhook', (req, res) => {
 
 function handleMessage(senderPsid, receivedMessage) {
     let response;
-    
+
     // Checks if the message contains text
     if (receivedMessage.text) {
         // Create the payload for a basic text message, which
@@ -147,8 +147,9 @@ function callSendAPI(senderPsid, response) {
     let requestBody = {
         'recipient': {
             'id': senderPsid
-        }, 
-        'message': response
+        },
+        'message': response,
+        "messaging_type": "RESPONSE"
     };
 
     const options = {
@@ -162,11 +163,11 @@ function callSendAPI(senderPsid, response) {
             const response = await got.post('https://graph.facebook.com/v20.0/me/messages', options);
             console.log('Message sent!', response.body);
         }
-        catch(err) {
+        catch (err) {
             console.error('Unable to send message:', err.response ? err.response.body : err.message);
         }
     })();
-    
+
 }
 
 var listener = app.listen(process.env.PORT, function () {
