@@ -1,22 +1,52 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Advanced Alarm Clock</title>
 </head>
+
 <body>
-  <h1>hehe</h1>
-  <form action="" method="post"></form>
-  <div class="fb-send" data-href="https://www.facebook.com/profile.php?id=61563323423472" data-colorscheme="dark"></div>
-    <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId            : '862642689083585',
-            xfbml            : true,
-            version          : 'v20.0'
-          });
-        };
-      </script>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+	<div class="clock">
+		<h1>
+			GeeksforGeeks
+		</h1>
+		<h3>
+			A Simple Alarm Clock in
+			HTML CSS & JavaScript
+		</h3>
+		<div class="time" id="time">
+			00:00:00
+		</div>
+		<div class="input-row">
+			<div class="input-field">
+				<label for="alarmDate">
+					Select Date:
+				</label>
+				<input type="date"
+					id="alarmDate"
+					class="alarm-input"
+					min="">
+			</div>
+			<div class="input-field">
+				<label for="alarmTime">
+					Select Time:
+				</label>
+				<input type="time" id="alarmTime"
+					class="alarm-input">
+			</div>
+			<button id="setAlarm">
+				Set Alarm
+			</button>
+		</div>
+		<div class="alarms" id="alarms">
+		</div>
+	</div>
+	<script src="clock.js"></script>
 </body>
+
 </html>

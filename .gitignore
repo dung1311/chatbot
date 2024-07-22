@@ -1,2 +1,7 @@
 .env
 node_modules
+clock.js
+fb.js
+test.js
+style.js
+index.html

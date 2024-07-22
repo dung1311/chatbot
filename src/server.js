@@ -80,7 +80,7 @@ app.post('/webhook', (req, res) => {
 
 function handleMessage(senderPsid, receivedMessage) {
     let response;
-
+    
     // Checks if the message contains text
     if (receivedMessage.text) {
         // Create the payload for a basic text message, which
@@ -144,7 +144,6 @@ function handlePostback(senderPsid, receivedPostback) {
 function callSendAPI(senderPsid, response) {
 
     const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-
     let requestBody = {
         'recipient': {
             'id': senderPsid
@@ -167,9 +166,10 @@ function callSendAPI(senderPsid, response) {
             console.error('Unable to send message:', err.response ? err.response.body : err.message);
         }
     })();
-
+    
 }
 
 var listener = app.listen(process.env.PORT, function () {
     console.log('Your app is listening on port ' + listener.address().port);
 });
+
