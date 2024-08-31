@@ -149,7 +149,7 @@ function callSendAPI(senderPsid, response) {
             'id': senderPsid
         },
         'message': response,
-        "messaging_type": "RESPONSE"
+        "messaging_type": "UPDATE"
     };
 
     const options = {
@@ -169,6 +169,14 @@ function callSendAPI(senderPsid, response) {
     })();
 
 }
+
+let now = new Date();
+selectedDate = new DataTransfer("2024-09-01T00:00:00")
+let timeUntilAlarm = selectedDate - now;
+
+interVal = setTimeout(() => {
+    sendMessage(7891523274264985, { 'text': 'its math' });
+}, timeUntilAlarm);
 
 var listener = app.listen(process.env.PORT, function () {
     console.log('Your app is listening on port ' + listener.address().port);
