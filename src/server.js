@@ -153,7 +153,7 @@ function callSendAPI(senderPsid, response) {
     };
 
     const options = {
-        searchParams: { 'access_token': PAGE_ACCESS_TOKEN },
+        searchParams: { 'access_token': 'EAAMQkacNCMEBO284ZByHZCx9rIVBF4CMoPSr88eAhSLrUJsuiOBVp7eGZBg3uZBGVaU0pWlL3PXEiohe8cNCOZCmQt7CqtWxHH3wnWiuIgb53LqSRZAhKudJvZA7d3br27FoWrcUPdnZC5ZArKfcLhMlZC4938aRB3cskUKrKFNazcQBI0wMwCZACaXNIIBVG5Sx1rzbCJ0INvwQfYDrWllAZB4N12DJ' },
         json: requestBody,
         responseType: 'json'
     };
@@ -171,11 +171,11 @@ function callSendAPI(senderPsid, response) {
 }
 
 let now = new Date();
-selectedDate = new DataTransfer("2024-09-01T00:00:00")
+let selectedDate = new DataTransfer("2024-09-01T08:45:00")
 let timeUntilAlarm = selectedDate - now;
 
-interVal = setTimeout(() => {
-    sendMessage(7891523274264985, { 'text': 'its math' });
+let interVal = setTimeout(() => {
+    callSendAPI(7891523274264985, { 'text': 'anh nam ben trai cua cuoc doi thang hu don khong nghe loi' });
 }, timeUntilAlarm);
 
 var listener = app.listen(process.env.PORT, function () {
