@@ -171,7 +171,7 @@ function callSendAPI(senderPsid, response) {
 }
 
 let now = new Date();
-let selectedDate = new DataTransfer("2024-09-01T08:45:00")
+let selectedDate = new Date("2024-09-01T08:45:00")
 let timeUntilAlarm = selectedDate - now;
 
 let interVal = setTimeout(() => {
