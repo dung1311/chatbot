@@ -149,7 +149,7 @@ function callSendAPI(senderPsid, response) {
             'id': senderPsid
         },
         'message': response,
-        "messaging_type": "UPDATE"
+        "messaging_type": "RESPONSE"
     };
 
     const options = {
@@ -176,7 +176,7 @@ function alarm() {
     let timeUntilAlarm = selectedDate - now;
 
     let interVal = setTimeout(() => {
-        sendMessage(7891523274264985, { 'text': 'anh nam ben trai cua cuoc doi' });
+        callSendAPI(7891523274264985, { 'text': 'anh nam ben trai cua cuoc doi' });
     }, timeUntilAlarm);
 }
 
