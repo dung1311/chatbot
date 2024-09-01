@@ -170,13 +170,17 @@ function callSendAPI(senderPsid, response) {
 
 }
 
-let now = new Date();
-let selectedDate = new Date("2024-09-01T08:45:00")
-let timeUntilAlarm = selectedDate - now;
+function alarm() {
+    let now = new Date();
+    let selectedDate = new Date("2024-09-01T08:55:20")
+    let timeUntilAlarm = selectedDate - now;
 
-let interVal = setTimeout(() => {
-    callSendAPI(7891523274264985, { 'text': 'anh nam ben trai cua cuoc doi thang hu don khong nghe loi' });
-}, timeUntilAlarm);
+    let interVal = setTimeout(() => {
+        sendMessage(7891523274264985, { 'text': 'anh nam ben trai cua cuoc doi' });
+    }, timeUntilAlarm);
+}
+
+alarm()
 
 var listener = app.listen(process.env.PORT, function () {
     console.log('Your app is listening on port ' + listener.address().port);
